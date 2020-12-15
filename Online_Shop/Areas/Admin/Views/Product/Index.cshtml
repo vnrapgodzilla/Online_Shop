@@ -1,0 +1,108 @@
+﻿@model PagedList.IPagedList<Model.EF.Product>
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+}
+
+@section header
+{
+    Danh sách sản phẩm
+}
+
+@section jsFooter{
+    <script src="~/Assets/admin/js/controller/productController.js"></script>
+}
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Danh sách sản phẩm</h6>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("Index", "Product", FormMethod.Get))
+        {
+            <div class="row form-group col-lg-12">
+                <div class="col-md-3">
+                    <input type="text" value="@ViewBag.SearchString" class="form-control" name="searchString" />
+                </div>
+                <div class="col-xs">
+                    <button type="submit" class="btn btn-success">Tìm kiếm</button>
+                </div>
+                <div class="col-md">
+                    <a type="button" class="btn btn-primary" href="/Admin/Product/Create">+ Thêm mới</a>
+                </div>
+            </div>
+        }
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Thao tác</th>
+                        <th>Tên tiêu đề</th>
+                        <th>Hình ảnh</th>
+                        <th>Ngày đăng</th>
+                        <th>Trạng thái</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr id="row_@item.ID">
+                                <td>
+                                    <a href="#" data-id="@item.ID" class="btn-images">Quản lý ảnh</a>
+                                    |
+                                    <a href="/Admin/Product/Edit/@item.ID">Sửa</a>
+                                    |
+                                    @Ajax.ActionLink("Xóa", "Delete", new { @id = item.ID }, new AjaxOptions
+                               {
+                                   Confirm = "Bạn có chắc chắn muốn xóa bản ghi này?",
+                                   OnComplete = "$('#row_" + @item.ID + "').remove()",
+                                   HttpMethod = "Delete"
+                               })
+                                </td>
+                                <td>@item.Name</td>
+                                <td><img src="@item.Image" width="100" /></td>
+                                <td>@item.CreatedDate</td>
+                                <td><a href="#" class="btn-active" data-id="@item.ID">@Html.Raw(item.Status.GetValueOrDefault(true) ? "Kích hoạt" : "Khóa")</a></td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+            @if (Model != null)
+            {
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
+            }
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="imagesManage" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Quản lý ảnh</h4>
+            </div>
+            <div class="modal-body">
+                <div id="imageList" style="margin:5px;">
+
+                </div>
+                <div class="clear"></div>
+                <input type="button" id="btnChooseImages" class="btn btn-primary" value="Chọn ảnh"/>
+                <input type="hidden" id="hidProductID" value="0"/>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="btnSaveImages">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
