@@ -1,0 +1,11 @@
+D:\Visual Studio 2019\Projects\Lap trinh C#\Visual Studio 2019\ASP.NET MVC\Online_Shop\StaticResources\bin\Debug\StaticResources.dll
+D:\Visual Studio 2019\Projects\Lap trinh C#\Visual Studio 2019\ASP.NET MVC\Online_Shop\StaticResources\bin\Debug\StaticResources.pdb
+D:\Visual Studio 2019\Projects\Lap trinh C#\Visual Studio 2019\ASP.NET MVC\Online_Shop\StaticResources\bin\Debug\en\StaticResources.resources.dll
+D:\Visual Studio 2019\Projects\Lap trinh C#\Visual Studio 2019\ASP.NET MVC\Online_Shop\StaticResources\obj\Debug\StaticResources.csprojAssemblyReference.cache
+D:\Visual Studio 2019\Projects\Lap trinh C#\Visual Studio 2019\ASP.NET MVC\Online_Shop\StaticResources\obj\Debug\StaticResources.Resources.resources
+D:\Visual Studio 2019\Projects\Lap trinh C#\Visual Studio 2019\ASP.NET MVC\Online_Shop\StaticResources\obj\Debug\StaticResources.Resources.en.resources
+D:\Visual Studio 2019\Projects\Lap trinh C#\Visual Studio 2019\ASP.NET MVC\Online_Shop\StaticResources\obj\Debug\StaticResources.csproj.GenerateResource.cache
+D:\Visual Studio 2019\Projects\Lap trinh C#\Visual Studio 2019\ASP.NET MVC\Online_Shop\StaticResources\obj\Debug\StaticResources.csproj.CoreCompileInputs.cache
+D:\Visual Studio 2019\Projects\Lap trinh C#\Visual Studio 2019\ASP.NET MVC\Online_Shop\StaticResources\obj\Debug\en\StaticResources.resources.dll
+D:\Visual Studio 2019\Projects\Lap trinh C#\Visual Studio 2019\ASP.NET MVC\Online_Shop\StaticResources\obj\Debug\StaticResources.dll
+D:\Visual Studio 2019\Projects\Lap trinh C#\Visual Studio 2019\ASP.NET MVC\Online_Shop\StaticResources\obj\Debug\StaticResources.pdb
