@@ -78,9 +78,9 @@ namespace Online_Shop.Areas.Admin.Controllers
             ProductDao dao = new ProductDao();
             var product = dao.ViewDetail(id);
             var dbImages = product.MoreImages;
-            XElement xImages = XElement.Parse(dbImages);
             if (dbImages != null)
             {
+                XElement xImages = XElement.Parse(dbImages);
                 foreach (var item in xImages.Elements())
                 {
                     xElement.Add(new XElement(item));
