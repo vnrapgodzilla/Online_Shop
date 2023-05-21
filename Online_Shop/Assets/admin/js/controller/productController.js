@@ -65,7 +65,7 @@
                 var data = res.data;
                 var html = '';
                 $.each(data, function (i, item) {
-                    html += '<div style="float:left"><img src="' + item + '" width="100" /><a href="#" class="btnDelImages"><i class="fa fa-times"></i></a></div>'
+                    html += '<div style="float:left"><img src="' + item + '" width="100" /><a href="#" class="btnDelImages"><i class="fa fa-times"></i></a>' + '<input type="hidden" class="hidImage" value=' + item + '>' + '</div>'
                 });
                 $('#imageList').html(html);
 

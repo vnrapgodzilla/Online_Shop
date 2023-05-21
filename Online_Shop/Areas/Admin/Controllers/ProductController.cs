@@ -75,17 +75,7 @@ namespace Online_Shop.Areas.Admin.Controllers
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             var listImages = serializer.Deserialize<List<string>>(images);
             XElement xElement = new XElement("Images");
-            ProductDao dao = new ProductDao();
-            var product = dao.ViewDetail(id);
-            var dbImages = product.MoreImages;
-            if (dbImages != null)
-            {
-                XElement xImages = XElement.Parse(dbImages);
-                foreach (var item in xImages.Elements())
-                {
-                    xElement.Add(new XElement(item));
-                }
-            }
+            var dao = new ProductDao();
             foreach (var item in listImages)
             {
                 xElement.Add(new XElement("Image", item));
